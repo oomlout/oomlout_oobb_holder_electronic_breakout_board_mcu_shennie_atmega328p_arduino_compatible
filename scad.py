@@ -61,7 +61,7 @@ def make_scad(**kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["width"] = 3
         p3["height"] = 5
-        p3["thickness"] = 3
+        p3["thickness"] = 9
         p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible"
         part["kwargs"] = p3
         part["name"] = "base"
@@ -227,15 +227,32 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
         w = 11
-        h = 25
+        h = 9
         d = depth
         size = [w,h,d]
         p3["size"] = size
         #p3["m"] = "#"        
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
-        pos1[1] += -26.25
+        pos1[1] += -18.25
         pos1[2] += 0        
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+
+        # extra_usb
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cube"
+        w = 18
+        h = 17
+        d = depth
+        size = [w,h,d]
+        p3["size"] = size
+        p3["m"] = "#"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += -30.25
+        pos1[2] += 0
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
 
