@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        #kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -53,6 +53,16 @@ def make_scad(**kwargs):
         p3["height"] = 6
         p3["thickness"] = 3
         p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch"
+        part["kwargs"] = p3
+        part["name"] = "base"
+        parts.append(part)
+
+        part = copy.deepcopy(part_default)
+        p3 = copy.deepcopy(kwargs)
+        p3["width"] = 3
+        p3["height"] = 5
+        p3["thickness"] = 3
+        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -115,7 +125,130 @@ def get_base(thing, **kwargs):
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
 
+
+
+
     if extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch":
+        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs)
+    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible":
+        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thing, **kwargs)
+
+
+
+    if prepare_print:
+        #put into a rotation object
+        components_second = copy.deepcopy(thing["components"])
+        return_value_2 = {}
+        return_value_2["type"]  = "rotation"
+        return_value_2["typetype"]  = "p"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 50
+        return_value_2["pos"] = pos1
+        return_value_2["rot"] = [180,0,0]
+        return_value_2["objects"] = components_second
+        
+        thing["components"].append(return_value_2)
+
+    
+        #add slice # top
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_slice"
+        #p3["m"] = "#"
+        oobb_base.append_full(thing,**p3)
+
+def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thing, **kwargs):
+        depth = kwargs.get("thickness", 3)
+        pos = kwargs.get("pos", [0, 0, 0])
+        #add mounting holes
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_screw_countersunk"
+        p3["radius_name"] = "m1_5"
+        p3["depth"] = depth
+        p3["holes"] = "mounting"
+        #p3["m"] = "#"
+        pos1 = copy.deepcopy(pos)
+        pos1[2] += 0
+        shift_x = 7.62
+        shift_y = 20.32
+        pos11 = copy.deepcopy(pos1)
+        pos11[0] += shift_x
+        pos11[1] += shift_y
+        pos12 = copy.deepcopy(pos1)
+        pos12[0] += shift_x
+        pos12[1] += -shift_y
+        pos13 = copy.deepcopy(pos1)
+        pos13[0] += -shift_x
+        pos13[1] += shift_y
+        pos14 = copy.deepcopy(pos1)
+        pos14[0] += -shift_x
+        pos14[1] += -shift_y
+        poss = [pos11, pos12, pos13, pos14]
+        p3["pos"] = poss
+        p3["zz"] = "bottom"
+        oobb_base.append_full(thing,**p3)
+
+        #add cutout cubes
+        # icsp
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cube"
+        w = 9
+        h = 6
+        d = depth
+        size = [w,h,d]
+        p3["size"] = size
+        #p3["m"] = "#"        
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += 19.5
+        pos1[2] += 0        
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+
+        #usb        
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cube"
+        w = 11
+        h = 25
+        d = depth
+        size = [w,h,d]
+        p3["size"] = size
+        #p3["m"] = "#"        
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += -26.25
+        pos1[2] += 0        
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+
+
+
+        # big one
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cube"
+        w = 18
+        h = 37
+        d = depth
+        size = [w,h,d]
+        p3["size"] = size
+        #p3["m"] = "#"
+        x_shift = 0
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += x_shift
+        pos1[1] += 0
+        pos1[2] += 0        
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+
+        return thing
+
+def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs):
+        depth = kwargs.get("thickness", 3)
+        pos = kwargs.get("pos", [0, 0, 0])
         #add mounting holes
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
@@ -186,32 +319,7 @@ def get_base(thing, **kwargs):
         p3["pos"] = poss
         oobb_base.append_full(thing,**p3)
 
-
-        poss = []
-
-
-    if prepare_print:
-        #put into a rotation object
-        components_second = copy.deepcopy(thing["components"])
-        return_value_2 = {}
-        return_value_2["type"]  = "rotation"
-        return_value_2["typetype"]  = "p"
-        pos1 = copy.deepcopy(pos)
-        pos1[0] += 50
-        return_value_2["pos"] = pos1
-        return_value_2["rot"] = [180,0,0]
-        return_value_2["objects"] = components_second
-        
-        thing["components"].append(return_value_2)
-
-    
-        #add slice # top
-        p3 = copy.deepcopy(kwargs)
-        p3["type"] = "n"
-        p3["shape"] = f"oobb_slice"
-        #p3["m"] = "#"
-        oobb_base.append_full(thing,**p3)
-    
+        return thing
 ###### utilities
 
 
