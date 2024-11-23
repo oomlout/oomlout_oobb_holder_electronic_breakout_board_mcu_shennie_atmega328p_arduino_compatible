@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -66,6 +66,19 @@ def make_scad(**kwargs):
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
+
+
+
+        part = copy.deepcopy(part_default)
+        p3 = copy.deepcopy(kwargs)
+        p3["width"] = 6
+        p3["height"] = 6
+        p3["thickness"] = 3
+        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint"
+        part["kwargs"] = p3
+        part["name"] = "base"
+        parts.append(part)
+
 
         
     #make the parts
@@ -132,6 +145,8 @@ def get_base(thing, **kwargs):
         thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs)
     elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible":
         thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thing, **kwargs)
+    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint":
+        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint(thing, **kwargs)
 
 
 
@@ -246,6 +261,57 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
 
         return thing
 
+def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint(thing, **kwargs):
+        depth = kwargs.get("thickness", 3)
+        pos = kwargs.get("pos", [0, 0, 0])
+        extra_lift = 3
+        #add mounting holes
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_screw_countersunk"
+        p3["radius_name"] = "m3"
+        p3["depth"] = depth + extra_lift
+        p3["holes"] = "mounting"
+        #p3["m"] = "#"
+        positions = []
+        positions.append([-23.96,26.46])
+        positions.append([24,24])
+        positions.append([-19.5,-26.5])
+        positions.append([8.5,-26.5])
+        poss = []
+        for position in positions:
+            pos1 = copy.deepcopy(pos)
+            pos1[0] += position[0]
+            pos1[1] += position[1]
+            pos1[2] += 0
+            poss.append(pos1)        
+        p3["pos"] = poss
+        rot1 =  [0,180,0]
+        p3["rot"] = rot1
+        p3["zz"] = "top"
+        oobb_base.append_full(thing,**p3)
+
+        #add cylinder lifters
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "p"
+        p3["shape"] = f"oobb_cylinder"
+        p3["radius"] = 6/2
+        p3["depth"] = depth + extra_lift
+        p3["holes"] = "mounting"
+        #p3["m"] = "#"
+        poss = []
+        for position in positions:
+            pos1 = copy.deepcopy(pos)
+            pos1[0] += position[0]
+            pos1[1] += position[1]
+            pos1[2] += extra_lift
+            poss.append(pos1)
+        p3["pos"] = poss        
+        oobb_base.append_full(thing,**p3)
+
+
+        return thing
+
 def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
@@ -320,6 +386,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_brea
         oobb_base.append_full(thing,**p3)
 
         return thing
+
 ###### utilities
 
 
