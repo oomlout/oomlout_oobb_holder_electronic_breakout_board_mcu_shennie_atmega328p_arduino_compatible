@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -49,16 +49,6 @@ def make_scad(**kwargs):
         
         part = copy.deepcopy(part_default)
         p3 = copy.deepcopy(kwargs)
-        p3["width"] = 4
-        p3["height"] = 6
-        p3["thickness"] = 3
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch"
-        part["kwargs"] = p3
-        part["name"] = "base"
-        parts.append(part)
-
-        part = copy.deepcopy(part_default)
-        p3 = copy.deepcopy(kwargs)
         p3["width"] = 3
         p3["height"] = 5
         p3["thickness"] = 9
@@ -67,6 +57,18 @@ def make_scad(**kwargs):
         part["name"] = "base"
         parts.append(part)
 
+
+        part = copy.deepcopy(part_default)
+        p3 = copy.deepcopy(kwargs)
+        p3["width"] = 4
+        p3["height"] = 6
+        p3["thickness"] = 3
+        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch"
+        part["kwargs"] = p3
+        part["name"] = "base"
+        parts.append(part)
+
+        
 
 
         part = copy.deepcopy(part_default)
@@ -242,11 +244,12 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         oobb_base.append_full(thing,**p3)
 
         #under usb screw clearance
+        #   at plug end
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
         w = 18
-        h = 3.5
+        h = 4.5
         d = shift_screw
         size = [w,h,d]
         p3["size"] = size
@@ -258,7 +261,8 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
 
-        p4 = copy.deepcopy(p3)
+        # at icsp end
+        p4 = copy.deepcopy(p3)        
         pos1 = copy.deepcopy(pos1)        
         pos1[1] = pos[1] + 20.32
         p4["pos"] = pos1
@@ -289,9 +293,10 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
+        ex = 4
         w = 18
         h = 37
-        d = depth
+        d = depth + ex
         size = [w,h,d]
         p3["size"] = size
         #p3["m"] = "#"
@@ -299,7 +304,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         pos1 = copy.deepcopy(pos)
         pos1[0] += x_shift
         pos1[1] += 0
-        pos1[2] += 0        
+        pos1[2] += -ex/2      
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
 
