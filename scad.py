@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        #kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -180,11 +180,12 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["type"] = "n"
         p3["shape"] = f"oobb_screw_countersunk"
         p3["radius_name"] = "m1_5"
-        p3["depth"] = depth
+        p3["depth"] = 8
         p3["holes"] = "mounting"
-        #p3["m"] = "#"
+        p3["clearance"] = "top"
+        p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
-        pos1[2] += 0
+        pos1[2] += -3
         shift_x = 7.62
         shift_y = 20.32
         pos11 = copy.deepcopy(pos1)
@@ -226,7 +227,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
-        w = 11
+        w = 12.5
         h = 9
         d = depth
         size = [w,h,d]

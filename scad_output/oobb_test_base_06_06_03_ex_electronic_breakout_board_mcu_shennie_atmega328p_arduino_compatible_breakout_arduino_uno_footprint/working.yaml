@@ -12,7 +12,7 @@ kwargs:
   modes:
   - 3dpr
   overwrite: true
-  save_type: none
+  save_type: all
   thickness: 3
   type: test_base
   width: 6
