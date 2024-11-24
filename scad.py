@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        #kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -258,6 +258,12 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
 
+        p4 = copy.deepcopy(p3)
+        pos1 = copy.deepcopy(pos1)        
+        pos1[1] = pos[1] + 20.32
+        p4["pos"] = pos1
+        oobb_base.append_full(thing,**p4)
+
         # extra_usb
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
@@ -274,6 +280,8 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         pos1[2] += 0
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
+
+        
 
 
 
