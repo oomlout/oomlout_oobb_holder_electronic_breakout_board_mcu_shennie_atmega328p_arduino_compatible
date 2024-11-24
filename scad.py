@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -180,12 +180,13 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["type"] = "n"
         p3["shape"] = f"oobb_screw_countersunk"
         p3["radius_name"] = "m1_5"
-        p3["depth"] = 8
+        p3["depth"] = 9
         p3["holes"] = "mounting"
         p3["clearance"] = "top"
         p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
-        pos1[2] += -3
+        shift_screw = 4
+        pos1[2] += -shift_screw
         shift_x = 7.62
         shift_y = 20.32
         pos11 = copy.deepcopy(pos1)
@@ -240,6 +241,23 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
 
+        #under usb screw clearance
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cube"
+        w = 18
+        h = 3.5
+        d = shift_screw
+        size = [w,h,d]
+        p3["size"] = size
+        p3["m"] = "#"        
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += -20.25
+        pos1[2] += depth - shift_screw
+        p3["pos"] = pos1
+        oobb_base.append_full(thing,**p3)
+
         # extra_usb
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
@@ -249,7 +267,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
         d = depth
         size = [w,h,d]
         p3["size"] = size
-        p3["m"] = "#"
+        #p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
         pos1[1] += -30.25
