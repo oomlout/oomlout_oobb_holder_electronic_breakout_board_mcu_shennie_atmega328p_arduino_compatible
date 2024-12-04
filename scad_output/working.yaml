@@ -1,0 +1,74 @@
+parts:
+  oobb_test_base_03_05_09_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible:
+    full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible
+      height: 5
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 9
+      type: test_base
+      width: 3
+    name: base
+    project_name: test
+  ? oobb_test_base_04_06_03_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
+  : full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
+      height: 6
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 3
+      type: test_base
+      width: 4
+    name: base
+    project_name: test
+  ? oobb_test_base_06_06_03_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint
+  : full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint
+      height: 6
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 3
+      type: test_base
+      width: 6
+    name: base
+    project_name: test
+project_id: oomlout_oobb_holder_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible
+project_name: Oomlout oobb holder electronic breakout board mcu shennie atmega328p
+  arduino compatible
+project_repo: https://github.com/oomlout/oomlout_oobb_holder_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible
