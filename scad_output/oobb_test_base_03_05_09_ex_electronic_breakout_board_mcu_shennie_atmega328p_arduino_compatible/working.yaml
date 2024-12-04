@@ -11,6 +11,8 @@ kwargs:
   height: 5
   modes:
   - 3dpr
+  - laser
+  - 'true'
   overwrite: true
   save_type: all
   thickness: 9
