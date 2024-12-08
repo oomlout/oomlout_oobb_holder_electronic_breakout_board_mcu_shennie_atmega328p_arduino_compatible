@@ -13,7 +13,7 @@ def make_scad(**kwargs):
 
     # save_type variables
     if True:
-        filter = "cnc"
+        filter = ""
         #filter = "with_clamp"
 
         kwargs["save_type"] = "none"
@@ -52,7 +52,7 @@ def make_scad(**kwargs):
         p3["width"] = 3
         p3["height"] = 5
         p3["thickness"] = 9
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible"
+        p3["extra"] = "shennie_atmega328p_arduino_compatible"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -63,7 +63,7 @@ def make_scad(**kwargs):
         p3["width"] = 4
         p3["height"] = 6
         p3["thickness"] = 3
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch"
+        p3["extra"] = "shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -76,7 +76,7 @@ def make_scad(**kwargs):
         p3["width"] = 6
         p3["height"] = 6
         p3["thickness"] = 3
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint"
+        p3["extra"] = "shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -86,7 +86,7 @@ def make_scad(**kwargs):
         p3["width"] = 4
         p3["height"] = 6
         p3["thickness"] = 3
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp"
+        p3["extra"] = "shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -97,7 +97,7 @@ def make_scad(**kwargs):
         p3["width"] = 6
         p3["height"] = 7
         p3["thickness"] = 3
-        p3["extra"] = "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_cnc_shield"
+        p3["extra"] = "shennie_atmega328p_arduino_compatible_breakout_cnc_shield"
         part["kwargs"] = p3
         part["name"] = "base"
         parts.append(part)
@@ -168,16 +168,16 @@ def get_base(thing, **kwargs):
 
 
 
-    if extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch":
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs)
-    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible":
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thing, **kwargs)
-    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint":
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
-    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp":
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp(thing, **kwargs)
-    elif extra == "electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_cnc_shield":
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwargs)
+    if extra == "shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch":
+        thing = add_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs)
+    elif extra == "shennie_atmega328p_arduino_compatible":
+        thing = add_shennie_atmega328p_arduino_compatible(thing, **kwargs)
+    elif extra == "shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint":
+        thing = add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
+    elif extra == "shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp":
+        thing = add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp(thing, **kwargs)
+    elif extra == "shennie_atmega328p_arduino_compatible_breakout_cnc_shield":
+        thing = add_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwargs)
 
 
 
@@ -203,7 +203,7 @@ def get_base(thing, **kwargs):
         #p3["m"] = "#"
         oobb_base.append_full(thing,**p3)
 
-def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thing, **kwargs):
+def add_shennie_atmega328p_arduino_compatible(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
         #add mounting holes
@@ -339,7 +339,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible(thin
 
         return thing
 
-def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs):
+def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
         extra_lift = 3
@@ -408,14 +408,14 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_brea
 
         return thing
 
-def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp(thing, **kwargs):
+def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
         height = kwargs.get("height", 3)
         width = kwargs.get("width", 3)
         extra_lift = 3
         rot = kwargs.get("rot", [0, 0, 0])
-        thing = add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
+        thing = add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
 
         depth_lift = 20
         #add top clamp plate
@@ -598,7 +598,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_brea
         return thing
 
 
-def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwargs):
+def add_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
         rot = kwargs.get("rot", [0, 0, 0])
@@ -655,7 +655,7 @@ def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_brea
         return thing
 
 
-def add_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs):
+def add_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch(thing, **kwargs):
         depth = kwargs.get("thickness", 3)
         pos = kwargs.get("pos", [0, 0, 0])
         #add mounting holes
