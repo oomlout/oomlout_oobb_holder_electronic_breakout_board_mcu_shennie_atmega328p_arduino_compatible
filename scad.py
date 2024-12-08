@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "with_clamp"
 
         kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        #kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -619,7 +619,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwarg
         p3["radius_name"] = "m3"
         p3["depth"] = depth + extra_lift
         p3["holes"] = "mounting"
-        p3["m"] = "#"
+        #p3["m"] = "#"
         poss = []
         for shift in positions:
             pos1 = copy.deepcopy(pos)
@@ -636,7 +636,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_cnc_shield(thing, **kwarg
 
         #add cylinder lifters
         p3 = copy.deepcopy(kwargs)
-        p3["type"] = "positive_positive"
+        p3["type"] = "positive"
         p3["shape"] = f"oobb_cylinder"
         p3["radius"] = 6/2
         p3["depth"] = extra_lift

@@ -7,7 +7,7 @@ full_shift:
 - 0
 - 0
 kwargs:
-  extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_cnc_shield
+  extra: shennie_atmega328p_arduino_compatible_breakout_cnc_shield
   height: 7
   modes:
   - 3dpr
