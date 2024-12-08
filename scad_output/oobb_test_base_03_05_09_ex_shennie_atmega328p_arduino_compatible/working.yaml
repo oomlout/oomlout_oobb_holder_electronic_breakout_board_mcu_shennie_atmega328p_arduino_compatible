@@ -7,7 +7,7 @@ full_shift:
 - 0
 - 0
 kwargs:
-  extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible
+  extra: shennie_atmega328p_arduino_compatible
   height: 5
   modes:
   - 3dpr

@@ -7,7 +7,7 @@ full_shift:
 - 0
 - 0
 kwargs:
-  extra: shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
+  extra: shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint
   height: 6
   modes:
   - 3dpr
@@ -17,6 +17,6 @@ kwargs:
   save_type: all
   thickness: 3
   type: test_base
-  width: 4
+  width: 6
 name: base
 project_name: test
