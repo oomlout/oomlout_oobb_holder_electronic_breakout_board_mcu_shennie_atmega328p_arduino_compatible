@@ -14,10 +14,10 @@ def make_scad(**kwargs):
     # save_type variables
     if True:
         filter = ""
-        #filter = "with_clamp"
+        filter = "with_clamp"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -417,6 +417,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
         rot = kwargs.get("rot", [0, 0, 0])
         thing = add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
 
+        depth_board = .75
         depth_lift = 20
         #add top clamp plate
         depth_clamp = 9
@@ -458,7 +459,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
 
 
         #cube cutout for pcb
-        depth_pcb_cutout = 3 + 1.2
+        depth_pcb_cutout = 3 + depth_board
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
@@ -524,9 +525,9 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
         x_shift = -7.45; y_shift = -20.53; z_shift = 0
         cubes.append([[x_shift, y_shift, z_shift], [w,h,d]])
 
-        #power light 5,4 at -13,-27
-        w = 5; h = 4; d = depth_clamp
-        x_shift = -13; y_shift = -27; z_shift = 0
+        #power led light 6,12.25 at -12.5,-22.875
+        w = 6; h = 12.25; d = depth_clamp
+        x_shift = -12.5; y_shift = -22.875; z_shift = 0
         cubes.append([[x_shift, y_shift, z_shift], [w,h,d]])
 
         #weird connectors at bottom 7.62,10.16 at 1.44,-21.8
@@ -613,7 +614,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
             pos1 = copy.deepcopy(pos)
             pos1[0] += shift[0]
             pos1[1] += shift[1]
-            pos1[2] += depth + depth_lift + 3 + 1.2
+            pos1[2] += depth + depth_lift + 3 + depth_board
             poss.append(pos1)
         p3["pos"] = poss
         #oobb_base.append_full(thing,**p3)
@@ -632,6 +633,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
         rot = kwargs.get("rot", [0, 0, 0])
         thing = add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint(thing, **kwargs)
 
+        depth_board = .75
         depth_lift = 20
         #add top clamp plate
         depth_clamp = 9
@@ -653,7 +655,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
         oobb_base.append_full(thing,**p3)
 
         #cube cutout for pcb
-        depth_pcb_cutout = 3 + 1.2
+        depth_pcb_cutout = 3 + depth_board
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
@@ -803,7 +805,7 @@ def add_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footpri
             pos1 = copy.deepcopy(pos)
             pos1[0] += shift[0]
             pos1[1] += shift[1]
-            pos1[2] += depth + depth_lift + 3 + 1.2
+            pos1[2] += depth + depth_lift + 3 + depth_board
             poss.append(pos1)
         p3["pos"] = poss
         oobb_base.append_full(thing,**p3)
