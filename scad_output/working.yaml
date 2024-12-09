@@ -1,5 +1,5 @@
 parts:
-  oobb_test_base_03_05_09_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible:
+  oobb_test_base_03_05_09_ex_shennie_atmega328p_arduino_compatible:
     full_rotations:
     - 0
     - 0
@@ -9,7 +9,7 @@ parts:
     - 0
     - 0
     kwargs:
-      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible
+      extra: shennie_atmega328p_arduino_compatible
       height: 5
       modes:
       - 3dpr
@@ -22,8 +22,8 @@ parts:
       width: 3
     name: base
     project_name: test
-  ? oobb_test_base_04_06_03_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
-  : full_rotations:
+  oobb_test_base_04_06_03_ex_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp:
+    full_rotations:
     - 0
     - 0
     - 0
@@ -32,7 +32,7 @@ parts:
     - 0
     - 0
     kwargs:
-      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
+      extra: shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint_with_clamp
       height: 6
       modes:
       - 3dpr
@@ -45,8 +45,8 @@ parts:
       width: 4
     name: base
     project_name: test
-  ? oobb_test_base_06_06_03_ex_electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint
-  : full_rotations:
+  oobb_test_base_04_06_03_ex_shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch:
+    full_rotations:
     - 0
     - 0
     - 0
@@ -55,8 +55,54 @@ parts:
     - 0
     - 0
     kwargs:
-      extra: electronic_breakout_board_mcu_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_footprint
+      extra: shennie_atmega328p_arduino_compatible_breakout_screw_terminal_3_5_mm_pitch
       height: 6
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 3
+      type: test_base
+      width: 4
+    name: base
+    project_name: test
+  oobb_test_base_06_06_03_ex_shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint:
+    full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: shennie_atmega328p_arduino_compatible_breakout_arduino_uno_short_footprint
+      height: 6
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 3
+      type: test_base
+      width: 6
+    name: base
+    project_name: test
+  oobb_test_base_06_07_03_ex_shennie_atmega328p_arduino_compatible_breakout_cnc_shield:
+    full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: shennie_atmega328p_arduino_compatible_breakout_cnc_shield
+      height: 7
       modes:
       - 3dpr
       - laser
